@@ -10,8 +10,9 @@ for i in tw.skill_dictionary:
     tw.skill_dictionary[i]=count
     
 #displaying the new ranked list
+rankno=1
 print("the ranked skill list")
 for i in sorted(tw.skill_dictionary,key=tw.skill_dictionary.get,reverse=True):
-    print(f"{i} : {tw.skill_dictionary[i]}")
+    print(f"{rankno} {i} : {tw.skill_dictionary[i]}")
 
 
