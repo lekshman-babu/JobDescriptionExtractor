@@ -1,37 +1,31 @@
-#opening file from second_week.py
 f=open("demo2.txt",'r')
-
-a=[]
-b=''
+indi_skill=[]
+job=[]
 skill_dictionary={}
+jobskill=[]
 
-#reading each line the file
+skill=["work experience","communication","verbal","degree","typing","certification","programming","analytical","ms office","multitasking"]
+#creating a new dictionary of skills
+for i in skill:
+    skill_dictionary[i]=None
+
+#creating a list of list for all the scanned jobs
 while True:
     eof=f.readline()
     if eof=='':
         break
+    eof=eof.replace("\n",'')
+    eof=eof.replace(" ",'',1)
     if eof.isupper():
-        if b!='':
-            
-            #replace first and last word with ''
-            b=b.replace(" ",'',1)
-            b=b.replace("\n",'')
-            skill_dictionary[b]=a
-            a=[]
-        b=eof
-    else:
-        if eof.islower():
-            
-            #replace last word with ''
-            eof=eof.replace("\n",'')
-            a.append(eof)
+        if job!=[]:
+            job=[]
+        job.append(eof)
+    if eof.islower():
+        indi_skill.append(eof)
+        jobskill.append([job,indi_skill])
+        indi_skill=[]
 
-#created skill dictionary
-print("the dictionary keys are:")
-for i in skill_dictionary:
-    print(i)
-
-#getting user input
-choice=input("choose on for the top: ")
-for i in skill_dictionary[choice]:
-    print(i)
+#only displaying jobs when this program is called
+if __name__=="__main__":
+    print(skill_dictionary)
+    print(jobskill)
