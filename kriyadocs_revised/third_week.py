@@ -13,9 +13,12 @@ if __name__=="__main__":
 
     print("checking whether the database is available:")
     try:
-        storedjob=sqlite.select()
-        for i in storedjob:
-            print(i)
+        print("TABLE IS AVAILABLE")
+        ch=input("do you want to display the contents:(y/n):")
+        if ch=="y":
+            storedjob=sqlite.select()
+            for i in storedjob:
+                print(i)
     except:
         print("table not created \n creating table.....")
         sqlite.create()
