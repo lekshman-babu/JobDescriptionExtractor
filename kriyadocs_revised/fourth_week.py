@@ -2,9 +2,10 @@ import third_week as tw
 import sqlite as sq
 
 
-
+#to read in all the stored jobs description
 storedjob=sq.select()
 
+#loop to check the count of each occurence of a skill
 for i in tw.skill_dictionary:
     count=0
     for j in storedjob:
